@@ -2,8 +2,8 @@
  require_once __DIR__ . '/movie.php';
    
    $movies = [
-      new movie('topgun', 'Joseph Kosinski', 'action', '1986', '1h 50m'),
-      new movie('hustle', 'Jeremiah Zagar', 'comedy/sport', '2022', '1h 57m')
+      new movie('topgun', 'Joseph Kosinski', 'action', '1986', 110),
+      new movie('hustle', 'Jeremiah Zagar', 'comedy/sport', '2022', 19)
    ];
    
  ?>
@@ -24,7 +24,12 @@
             <h4><?php echo $movie->movieDirector; ?></h4>
             <h4><?php echo $movie->genre; ?></h4>
             <h4><?php echo $movie->year; ?></h4>
-            <h4><?php echo $movie->runningTime; ?></h4>
+            <?php if($movie->runningTime < 20 ) { ?>
+            <strong> non è un film, è una serie tv </strong>
+            <?php } ?>
+            <?php  { ?>
+            <strong>durata: <?php echo $movie->runningTime; ?>M</strong>
+            <?php } ?>
         </li>
         <?php } ?>
     </ul>

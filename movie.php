@@ -14,6 +14,10 @@
       $this->genre = $_genre;
       $this->year = $_year;
       $this->runningTime = $_runningTime;
+
+      if($this->runningTime < 20){
+         return true;
+      }
     }
   }
 
